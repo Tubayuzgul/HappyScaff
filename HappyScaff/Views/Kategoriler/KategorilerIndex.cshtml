@@ -1,0 +1,41 @@
+﻿@model IEnumerable<HappyScaff.Models.Kategoriler>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style type='text/css'>
+    /*設定 數字靠右*/
+    td:nth-child(1){text-align: right;}
+</style>
+<h2>Index</h2>
+<h4>Kategoriler</h4>
+<p>
+    @Html.ActionLink("Create New", "KategorilerCreate")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriIcerik)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "KategorilerEdit", new { id=item.KategoriId })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KategoriBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KategoriIcerik)
+        </td>
+
+    </tr>
+}
+
+</table>
